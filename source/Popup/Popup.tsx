@@ -15,7 +15,7 @@ const Popup: React.FC = () => {
 
   React.useEffect(() => {
     (async () => {
-      let result = await getTarget(272652, "USD");
+      let result = await getTarget(272652, 'USD');
       
       // The target sum in USD (target ruble value = 100 000)
       let sumInUSD = result.targetSum;
@@ -37,7 +37,7 @@ const Popup: React.FC = () => {
       <div className="rates">
         <div className="rate">
           <div className="rate__title">1 USD = RUB</div>
-          <div className="rate__value">{rubLoading ? 'Загрузка...' : rubRate}</div>
+          <div className="rate__value">{rubLoading ? 'Загрузка...' : rubRate.toString()}</div>
         </div>
       </div>
     </section>
