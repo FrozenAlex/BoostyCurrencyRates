@@ -13,9 +13,7 @@
   "homepage_url": "https://github.com/FrozenAlex/BoostyCurrencyRates",
   "short_name": "Boosty Currency",
 
-  "permissions": [
-    "storage"
-  ],
+  "permissions": [],
 
   "host_permissions" : [
     "https://api.boosty.to/v1/target/*"
