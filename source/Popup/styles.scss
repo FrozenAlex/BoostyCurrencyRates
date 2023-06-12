@@ -1,0 +1,39 @@
+@import "../styles/fonts";
+@import "../styles/reset";
+@import "../styles/variables";
+
+body {
+  color: $black;
+  background-color: $greyWhite;
+}
+
+
+#popup {
+  min-width: 200px;
+  padding: 10px 10px;
+
+  h2 {
+    font-size: 16px;
+    text-align: center;
+  }
+  .rates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    .rate {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 10px;
+      .rate__name {
+        font-size: 14px;
+      }
+      .rate__value {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+}
