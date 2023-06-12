@@ -15,16 +15,16 @@ const Popup: React.FC = () => {
 
   React.useEffect(() => {
     (async () => {
-      let result = await getTarget(272652, 'USD');
+      let result = await getTarget(414314, 'USD');
       
-      // The target sum in USD (target ruble value = 100 000)
+      // The target sum in USD (target ruble value = 150 000)
       let sumInUSD = result.targetSum;
 
-      // Divide 100000 by the target sum in USD
-      let rubPerUSD = 100000 / sumInUSD;
+      // Divide 150000 by the target sum in USD
+      let rubPerUSD = 150000 / sumInUSD;
 
-      // Round the result to 2 decimal places
-      rubPerUSD = Math.round(rubPerUSD * 100) / 100;
+      // Round the result to 4 decimal places
+      rubPerUSD = Math.round(rubPerUSD * 10000) / 10000;
 
       setRubRate(rubPerUSD);
       setRubLoading(false);
