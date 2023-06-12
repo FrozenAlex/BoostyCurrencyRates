@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
-  "name": "Sample WebExtension",
-  "version": "0.0.0",
+  "manifest_version": 3,
+  "name": "Boosty Currency",
+  "version": "0.0.1",
 
   "icons": {
     "16": "assets/icons/favicon-16.png",
@@ -9,32 +9,40 @@
     "48": "assets/icons/favicon-48.png",
     "128": "assets/icons/favicon-128.png"
   },
-  "description": "Курсы валют Boosty",
-  "homepage_url": "https://github.com/FrozenAlex/web-extension-starter",
+  "description": "Курсы валют Boosty (USD to RUB)",
+  "homepage_url": "https://github.com/FrozenAlex/BoostyCurrencyRates",
   "short_name": "Boosty Currency",
 
   "permissions": [
-    "activeTab",
     "storage"
   ],
 
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "host_permissions" : [
+    "https://api.boosty.to/v1/target/*"
+  ],
 
-  "__chrome|firefox__author": "abhijithvijayan",
-  "__opera__developer": {
-    "name": "abhijithvijayan"
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
   },
 
-  "__firefox__applications": {
+  "__chrome|firefox__author": "FrozenAlex",
+  "__opera__developer": {
+    "name": "FrozenAlex"
+  },
+
+  "__firefox__browser_specific_settings": {
     "gecko": {
-      "id": "{754FB1AD-CC3B-4856-B6A0-7786F8CA9D17}"
+      "id": "boosty-rates@frozenalex.com"
+    },
+    "gecko_android": {
+      "id": "boosty-rates@frozenalex.com"
     }
   },
 
-  "__chrome__minimum_chrome_version": "49",
-  "__opera__minimum_opera_version": "36",
+  "__chrome__minimum_chrome_version": "88",
+  "__opera__minimum_opera_version": "88",
 
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "assets/icons/favicon-16.png",
@@ -47,27 +55,13 @@
     "__firefox__browser_style": false
   },
 
-  "__chrome|opera__options_page": "options.html",
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true,
-    "__chrome__chrome_style": false
+  "__chrome|opera__background": {
+    "service_worker": "js/background.bundle.js"
   },
 
-  "background": {
+  "__firefox__background": {
     "scripts": [
       "js/background.bundle.js"
-    ],
-    "__chrome|opera__persistent": false
-  },
-
-  "content_scripts": [{
-    "matches": [
-      "http://*/*",
-      "https://*/*"
-    ],
-    "js": [
-      "js/contentScript.bundle.js"
     ]
-  }]
+  }
 }
